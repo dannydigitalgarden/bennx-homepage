@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="180px" viewBox="0 0 375 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Hero image Copy 2</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="375" height="180"></rect>
+        <linearGradient x1="44.7642312%" y1="52.2149404%" x2="58.8825327%" y2="93.166533%" id="linearGradient-3">
+            <stop stop-color="#DDE2E5" offset="0%"></stop>
+            <stop stop-color="#EDF2F4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="88.6598153%" y1="33.643889%" x2="73.8367962%" y2="47.7882434%" id="linearGradient-4">
+            <stop stop-color="#EDF2F4" offset="0%"></stop>
+            <stop stop-color="#E8F0F3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="42.1261093%" y1="50%" x2="80.4276569%" y2="58.6363619%" id="linearGradient-5">
+            <stop stop-color="#E1E8EA" offset="0%"></stop>
+            <stop stop-color="#EDF2F4" offset="48.5910696%"></stop>
+            <stop stop-color="#E2E7E9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="5.69271458%" y1="37.7588968%" x2="40.5420572%" y2="50.565887%" id="linearGradient-6">
+            <stop stop-color="#EDF2F4" offset="0%"></stop>
+            <stop stop-color="#E8F0F3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="27.5335888%" y1="44.0024888%" x2="21.537353%" y2="59.5120965%" id="linearGradient-7">
+            <stop stop-color="#DBE1E4" offset="0%"></stop>
+            <stop stop-color="#EDF2F4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile---Homepage-dropdoen-opened" transform="translate(0.000000, -106.000000)">
+            <g id="Hero-image-Copy-2" transform="translate(0.000000, 106.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <g id="Group-7" mask="url(#mask-2)">
+                    <g transform="translate(0.000000, -46.000000)">
+                        <polygon id="Rectangle" fill="url(#linearGradient-3)" points="251 32 379.481308 44.4296619 381 310 251 310"></polygon>
+                        <path d="M25,61.2705382 C164.950575,69.0259679 269.01408,132.602455 337.190517,252 L338,61 L25,61.2705382 Z" id="Path-26" fill="url(#linearGradient-4)" transform="translate(181.500000, 156.500000) scale(-1, 1) translate(-181.500000, -156.500000) "></path>
+                        <path d="M29,47 C119.17069,104.643836 156.590517,192.310502 141.259483,310 L380,310 L377.070495,63.0297632 L29,47 Z" id="Path-11" fill="url(#linearGradient-5)" transform="translate(204.500000, 178.500000) scale(-1, 1) translate(-204.500000, -178.500000) "></path>
+                        <path d="M33.7959989,0 C21.3160878,65.7129187 33.1921322,128.712919 69.4241324,189 C151.147422,94.7511962 254.006044,46.6220096 378,44.6124402 L378,0 L33.7959989,0 Z" id="Path-2" fill="url(#linearGradient-6)"></path>
+                        <path d="M28.8590308,61 C31.3109448,103.063733 44.6912679,145.92868 69,189.594841 C55.7040953,204.749003 44.1799729,220.419092 34.4276326,236.605108 L34.8502203,249.927224 L21.6696035,259 L1,61 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                        <path d="M69.8890147,189 C20.1834655,249.651629 15.9660249,278.764411 0,309.090226 L266,310 C180.446206,297.060986 115.075878,256.727652 69.8890147,189 Z" id="Path-14" fill="url(#linearGradient-7)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
