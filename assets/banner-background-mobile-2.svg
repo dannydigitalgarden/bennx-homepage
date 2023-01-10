@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="200px" viewBox="0 0 375 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Hero image Copy</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="375" height="200"></rect>
+        <linearGradient x1="7.40582196%" y1="1.27947299%" x2="73.3567943%" y2="94.689719%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FAFAFA" offset="60.8539375%"></stop>
+            <stop stop-color="#FAFAFA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile---Homepage-dropdoen-opened" transform="translate(0.000000, -893.000000)">
+            <g id="Hero-image-Copy" transform="translate(0.000000, 893.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <g id="Group-15" mask="url(#mask-2)">
+                    <g transform="translate(25.000000, -90.000000)">
+                        <path d="M51.2794257,0 C10.588672,70.6578561 -5.88568186,139.603341 1.85636421,206.836454 C13.4694333,307.686123 59.9217097,360.679515 69.9143506,372.305617 C145.264264,461.258811 213.32225,475.588656 245.730815,482.618392 C288.58214,493.793869 338.005202,493.793869 394,482.618392 L394,0 L51.2794257,0 Z" id="Path-10" fill="url(#linearGradient-3)"></path>
+                        <path d="M271,46 L352,46 C352,118.24359 352,156.576923 352,161 C311.245283,135.051282 284.245283,96.7179487 271,46 Z" id="Path-16" fill-opacity="0.3" fill="#EDF2F4"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
