@@ -4,6 +4,9 @@ import BannerImageFloatingWithDropdown from "components/Banners/BannerImageFloat
 import BannerImageFull from "components/Banners/BannerImageFull";
 import CardGrid from "components/CardGrid";
 import LatestInsights from "components/LatestInsights/LatestInsights";
+
+import { useMediaQuery } from "react-responsive";
+
 import "./App.css";
 
 import Subscribe from "components/Subscribe";
@@ -15,6 +18,7 @@ import "@splidejs/react-splide/css/skyblue";
 
 import { useWindowScroll } from "react-use";
 import ModalVideo from "components/ModalVideo";
+import IconTextListing from "components/IconTextListing";
 
 const latestInsights = {
   title: "Latest Insights",
@@ -65,6 +69,10 @@ const subscribe = {
 function App() {
   const [isModalActive, setIsModalActive] = useState(false);
 
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
+  const [currentActiveSlide, setCurrentActiveSlide] = useState(0);
+
   const slideRef = useRef<Splide>(null);
   const slideOptions = {
     direction: "ttb",
@@ -109,6 +117,12 @@ function App() {
 
       <LatestInsights {...latestInsights} />
       <Subscribe {...subscribe} />
+
+      {!isTabletOrMobile && (
+        <div className="fixed bottom-2 left-1/2 z-10 w-full translate-x-[-50%]">
+          <IconTextListing />
+        </div>
+      )}
       {isModalActive && <ModalVideo setIsModalActive={setIsModalActive} />}
     </div>
   );

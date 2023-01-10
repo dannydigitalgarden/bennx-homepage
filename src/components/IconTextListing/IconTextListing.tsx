@@ -16,7 +16,7 @@ const IconTextListing = () => {
   return (
     <div className="mx-auto">
       <Container>
-        <div className="flex flex-col gap-[1px] md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-[2px]">
+        <div className="flex flex-col gap-[1px] md:flex-row md:flex-wrap md:items-stretch md:justify-center md:gap-[2px]">
           <IconText {...textIcon} />
           <IconText {...textIcon} />
           <IconText {...textIcon} />
