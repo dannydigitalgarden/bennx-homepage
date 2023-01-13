@@ -11,7 +11,7 @@ interface LatestInsightsProps {
 
 const LatestInsights: React.FC<LatestInsightsProps> = ({ title, items, button }) => {
   return (
-    <div className="p-horizontal my-10 bg-white xl:py-36">
+    <div className="p-horizontal pb-10 xl:py-36">
       <Container>
         <div className="mb-12 flex flex-col items-start  md:flex-row md:items-center md:justify-between">
           <div className="heading-xl mb-5 text-4xl text-gray-900 md:mb-0">{title}</div>

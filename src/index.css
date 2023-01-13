@@ -58,5 +58,20 @@ html {
 }
 
 .subscribe-circle-mobile {
-  background-image: linear-gradient(45deg, #a2041c 47%, #880a1d 88%);
+  background-image: linear-gradient(45deg, #ffffff13 47%, #ffffff00 88%);
+}
+
+.circle-1 {
+  @apply absolute right-[-700px] top-[-800px] z-[0] hidden aspect-square w-[1550px] min-w-[100%] rounded-full  opacity-100 md:block;
+  background-image: linear-gradient(124deg, #edf2f4 6%, #e8f0f3 44%);
+}
+
+.circle-2 {
+  @apply absolute right-[-850px] top-[15%] z-[1] hidden aspect-square w-[1800px] min-w-[110%] rounded-full  opacity-60 md:block;
+  background-image: linear-gradient(190deg, #dbe1e4 100%, #edf2f4 0%);
+}
+
+.circle-3 {
+  @apply absolute right-[-800px] top-[12%] z-[2] hidden aspect-square w-[1050px] min-w-[60%] rounded-full opacity-100 md:block;
+  background-color: #dde2e4;
 }

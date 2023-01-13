@@ -12,9 +12,7 @@ import "./App.css";
 import Subscribe from "components/Subscribe";
 
 import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
-import { Intersection } from "@splidejs/splide-extension-intersection";
-// import "@splidejs/react-splide/css";
-import "@splidejs/react-splide/css/skyblue";
+import "@splidejs/react-splide/css";
 
 import { useWindowScroll } from "react-use";
 import ModalVideo from "components/ModalVideo";
@@ -71,58 +69,98 @@ function App() {
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-  const [currentActiveSlide, setCurrentActiveSlide] = useState(0);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   const slideRef = useRef<Splide>(null);
+
   const slideOptions = {
+    type: "slide",
+    updateOnMove: true,
     direction: "ttb",
     wheel: true,
     releaseWheel: true,
     waitForTransition: true,
-    wheelSleep: 100,
+    wheelSleep: 200,
     speed: 1000,
     width: "100vw",
     height: "100vh",
     arrows: false,
-    mediaQuery: "max",
-    breakpoints: {
-      768: {
-        destroy: true,
-      },
-    },
   } as const;
 
-  const { x, y } = useWindowScroll();
+  const { y } = useWindowScroll();
 
-  const [enabledWheel, setEnabledWheel] = useState(true);
+  useEffect(() => {
+    if (isTabletOrMobile) return;
+
+    const track = document.querySelector(".splide__track") as HTMLDivElement;
+    if (!track && slideRef.current) return;
+
+    if (y > 0 && slideRef.current?.splide && slideRef.current.splide.index + 1 == slideRef.current?.splide?.length) {
+      track.style.pointerEvents = "none";
+    } else {
+      track.style.pointerEvents = "auto";
+    }
+  }, [y, isTabletOrMobile]);
 
   return (
     <div className="App">
-      <Splide ref={slideRef} hasTrack={false} aria-label="my slider" options={slideOptions} extensions={{ Intersection }}>
-        <SplideTrack>
-          <SplideSlide>
-            <BannerImageFloatingWithButton />
-          </SplideSlide>
-          <SplideSlide>
-            <BannerImageFloatingWithDropdown />
-          </SplideSlide>
-          <SplideSlide>
-            <BannerImageFull setIsModalActive={setIsModalActive} />
-          </SplideSlide>
-          <SplideSlide>
-            <CardGrid />
-          </SplideSlide>
-        </SplideTrack>
-      </Splide>
-
-      <LatestInsights {...latestInsights} />
-      <Subscribe {...subscribe} />
-
       {!isTabletOrMobile && (
-        <div className="fixed bottom-2 left-1/2 z-10 w-full translate-x-[-50%]">
-          <IconTextListing />
+        <div className="relative overflow-hidden">
+          <Splide
+            ref={slideRef}
+            hasTrack={false}
+            aria-label="my slider"
+            options={slideOptions}
+            onMove={(splide, index) => {
+              setActiveSlideIndex(index);
+              console.log(index);
+            }}
+          >
+            <SplideTrack>
+              <div className="circles">
+                <div className=" circle-1"></div>
+                <div className=" circle-2"></div>
+                <div className=" circle-3"></div>
+              </div>
+              <SplideSlide>
+                <BannerImageFloatingWithButton />
+              </SplideSlide>
+              <SplideSlide>
+                <BannerImageFloatingWithDropdown />
+              </SplideSlide>
+              <SplideSlide>
+                <BannerImageFull setIsModalActive={setIsModalActive} />
+              </SplideSlide>
+              {/* <SplideSlide>
+                <CardGrid />
+              </SplideSlide> */}
+            </SplideTrack>
+          </Splide>
+
+          {!isTabletOrMobile && activeSlideIndex <= 1 && (
+            <div className="z-[5] w-full md:absolute md:bottom-4">
+              <IconTextListing />
+            </div>
+          )}
         </div>
       )}
+
+      {isTabletOrMobile && (
+        <div>
+          <BannerImageFloatingWithButton />
+          <BannerImageFloatingWithDropdown />
+          <BannerImageFull setIsModalActive={setIsModalActive} />
+          <CardGrid />
+        </div>
+      )}
+      <div className="relative overflow-hidden">
+        <div className="absolute right-[-900px] top-[-400px] z-0 hidden aspect-square w-[1550px] rounded-full bg-[#ccc] opacity-10 xl:block 2xl:top-[-400px] 2xl:right-[-650px]"></div>
+        <div className="relative z-10">
+          <LatestInsights {...latestInsights} />
+        </div>
+        <Subscribe {...subscribe} />
+      </div>
+
       {isModalActive && <ModalVideo setIsModalActive={setIsModalActive} />}
     </div>
   );

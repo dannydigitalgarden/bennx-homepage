@@ -18,7 +18,7 @@ const Subscribe: React.FC<SubscribeProps> = ({ title, intro, button, color }) =>
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const textColor = cx({ "text-white": color === "light", "text-dark": color === "dark" });
   return (
-    <div className="p-horizontal bg-primary-gradient relative overflow-hidden py-20">
+    <div className="p-horizontal bg-primary-gradient relative overflow-hidden py-20 md:static">
       {isTabletOrMobile && (
         <div className="subscribe-circle-mobile  absolute top-0 right-0 z-[1] aspect-square max-h-[80%] w-full translate-x-[75%] translate-y-[-90%] scale-[2.5] rounded-full "></div>
       )}

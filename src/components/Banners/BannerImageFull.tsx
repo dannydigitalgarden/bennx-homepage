@@ -9,7 +9,7 @@ const BannerImageFull: React.FC<Props> = ({ setIsModalActive }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-white bg-cover bg-no-repeat">
+    <div className="relative h-screen w-full overflow-hidden bg-cover bg-no-repeat">
       <div className="absolute top-0 right-0 bottom-0 left-0 z-0 h-full w-full">
         <img
           src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"

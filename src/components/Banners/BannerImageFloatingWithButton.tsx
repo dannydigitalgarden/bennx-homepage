@@ -11,7 +11,7 @@ import Button from "components/Button";
 const BannerImageFloatingWithButton = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
-    <div className="relative w-full overflow-hidden bg-white md:h-screen">
+    <div className="relative w-full overflow-hidden md:h-screen">
       <div className={cx({ "p-horizontal": !isTabletOrMobile }, "h-full w-full")}>
         <div className="mx-auto h-full max-w-[1440px]">
           <div className="flex h-full flex-col items-start justify-center md:flex-row-reverse md:items-center">
@@ -21,11 +21,11 @@ const BannerImageFloatingWithButton = () => {
                   <img src={bannerBackgroundMobile} className="h-full w-full" alt="bg" />
                 </div>
               )}
-              <img src={woman} className="relative z-[1] mx-auto h-auto w-[50%] object-cover md:w-auto md:object-contain" />
+              <img src={woman} className="relative z-[2] mx-auto h-auto w-[50%] object-cover md:w-auto md:object-contain" />
             </div>
 
             {isTabletOrMobile && (
-              <div className="relative z-[5] w-full md:fixed md:bottom-4">
+              <div className="relative z-[5] w-full md:absolute md:bottom-4">
                 <IconTextListing />
               </div>
             )}
