@@ -19,6 +19,7 @@
     "react-responsive": "^9.0.2",
     "react-use": "^17.4.0",
     "react-use-scroll-direction": "^0.1.0",
+    "split-type": "^0.3.3",
     "swiper": "^8.4.5",
     "tailwindcss-fluid-type": "^2.0.3"
   },

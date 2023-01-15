@@ -67,11 +67,11 @@ html {
 }
 
 .circle-2 {
-  @apply absolute right-[-850px] top-[15%] z-[1] hidden aspect-square w-[1800px] min-w-[110%] rounded-full  opacity-60 md:block;
-  background-image: linear-gradient(190deg, #dbe1e4 100%, #edf2f4 0%);
+  @apply absolute right-[-850px] top-[15%] z-[1] hidden aspect-square w-[1800px] min-w-[115%] rounded-full  opacity-60 md:block;
+  background-color: #dbe1e4;
 }
 
 .circle-3 {
-  @apply absolute right-[-800px] top-[12%] z-[2] hidden aspect-square w-[1050px] min-w-[60%] rounded-full opacity-100 md:block;
+  @apply absolute right-[-800px] top-[12%] z-[2] hidden aspect-square w-[1050px] min-w-[60%] rounded-full opacity-80 md:block;
   background-color: #dde2e4;
 }
