@@ -6,6 +6,7 @@
 .swiper-pagination {
   left: 10px;
   right: auto;
+  width: fit-content;
 }
 
 .swiper-pagination-bullet-active {
