@@ -11,15 +11,21 @@ import "./App.css";
 
 import Subscribe from "components/Subscribe";
 
-import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
-
 import { useWindowScroll } from "react-use";
 import ModalVideo from "components/ModalVideo";
 import IconTextListing from "components/IconTextListing";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Mousewheel, Pagination } from "swiper";
 
 const latestInsights = {
   title: "Latest Insights",
@@ -70,12 +76,13 @@ const subscribe = {
 function App() {
   gsap.registerPlugin(ScrollTrigger);
   const [isModalActive, setIsModalActive] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
-  const slideRef = useRef<Splide>(null);
+  const [mySwiper, setMySwiper] = useState<any>(null);
 
   const circleOneRef = useRef() as MutableRefObject<HTMLDivElement>;
   const circleTwoRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -83,34 +90,23 @@ function App() {
 
   const insightsCircleRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-  const slideOptions = {
-    type: "slide",
-    updateOnMove: true,
-    direction: "ttb",
-    wheel: true,
-    releaseWheel: true,
-    waitForTransition: true,
-    wheelSleep: 200,
-    speed: 1000,
-    width: "100vw",
-    height: "100vh",
-    arrows: false,
-  } as const;
-
   const { y } = useWindowScroll();
 
   useEffect(() => {
-    if (isTabletOrMobile) return;
-
-    const track = document.querySelector(".splide__track") as HTMLDivElement;
-    if (!track && slideRef.current) return;
-
-    if (y > 0 && slideRef.current?.splide && slideRef.current.splide.index + 1 == slideRef.current?.splide?.length) {
-      track.style.pointerEvents = "none";
-    } else {
-      track.style.pointerEvents = "auto";
+    if (isTabletOrMobile) {
+      setMySwiper(null);
     }
-  }, [y, isTabletOrMobile]);
+  }, [isTabletOrMobile]);
+
+  useEffect(() => {
+    if (!mySwiper) return;
+
+    if (y > 0 && mySwiper.isEnd) {
+      mySwiper.mousewheel.disable();
+    } else {
+      mySwiper.mousewheel.enable();
+    }
+  }, [y]);
 
   useEffect(() => {
     if (insightsCircleRef.current) {
@@ -136,92 +132,122 @@ function App() {
     if (activeSlideIndex != 0) {
       if (circleOneRef.current) {
         gsap.to(circleOneRef.current, {
-          yPercent: -10,
-          duration: 2.5,
+          yPercent: -activeSlideIndex * 75,
+          duration: 1.2,
+          ease: "none",
         });
       }
 
       if (circleTwoRef.current) {
         gsap.to(circleTwoRef.current, {
           opacity: 0.2,
-          duration: 2,
-          y: -120,
+          duration: 1.5,
+          yPercent: -activeSlideIndex * 25,
+          ease: "none",
         });
       }
 
       if (circleThreeRef.current) {
         gsap.to(circleThreeRef.current, {
-          opacity: 0.2,
-          y: 50,
+          opacity: 0.5,
+          yPercent: -activeSlideIndex * 75,
           duration: 2,
         });
       }
     } else {
       gsap.to(circleOneRef.current, {
         yPercent: 0,
-        duration: 2,
+        duration: 1.2,
       });
 
       gsap.to(circleTwoRef.current, {
-        opacity: 0.7,
-        y: -10,
-        duration: 2,
+        opacity: 0.75,
+        yPercent: 0,
+        duration: 1.5,
       });
 
       gsap.to(circleThreeRef.current, {
         opacity: 0.8,
-        y: 0,
+        yPercent: 0,
         duration: 2,
       });
     }
   }, [activeSlideIndex]);
+
+  useEffect(() => {
+    if (isModalActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isModalActive]);
+
+  useEffect(() => {
+    if (!mySwiper) return;
+    if (isDropdownOpen) {
+      document.body.style.overflow = "hidden";
+      mySwiper.disable();
+    } else {
+      mySwiper.enable();
+      document.body.style.overflow = "auto";
+    }
+  }, [isDropdownOpen]);
+
   return (
     <div className="App">
       {!isTabletOrMobile && (
         <div className="banners-desktop relative overflow-hidden">
-          <Splide
-            ref={slideRef}
-            hasTrack={false}
-            aria-label="my slider"
-            options={slideOptions}
-            onMove={(splide, index) => {
-              setActiveSlideIndex(index);
-              console.log(index);
+          <div className="circles pointer-events-none">
+            <div ref={circleOneRef} className="circle-1"></div>
+            <div ref={circleTwoRef} className="circle-2"></div>
+            <div ref={circleThreeRef} className="circle-3"></div>
+          </div>
+
+          <Swiper
+            direction={"vertical"}
+            speed={800}
+            slidesPerView={1}
+            allowTouchMove={false}
+            mousewheel={{
+              releaseOnEdges: true,
+              forceToAxis: true,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Mousewheel, Pagination]}
+            className="mySwiper"
+            onSwiper={(swiper) => {
+              setMySwiper(swiper);
+            }}
+            onSlideChange={(swiper) => {
+              setActiveSlideIndex(swiper.activeIndex);
+              console.log(swiper.activeIndex);
             }}
           >
-            <SplideTrack>
-              <div className="circles">
-                <div ref={circleOneRef} className="circle-1"></div>
-                <div ref={circleTwoRef} className="circle-2"></div>
-                <div ref={circleThreeRef} className="circle-3"></div>
-              </div>
-              <SplideSlide>
-                <BannerImageFloatingWithButton />
-              </SplideSlide>
-              <SplideSlide>
-                <BannerImageFloatingWithDropdown />
-              </SplideSlide>
-              <SplideSlide>
-                <BannerImageFull setIsModalActive={setIsModalActive} />
-              </SplideSlide>
-              {/* <SplideSlide>
-                <CardGrid />
-              </SplideSlide> */}
-            </SplideTrack>
-          </Splide>
-
+            <SwiperSlide>
+              <BannerImageFloatingWithButton />
+            </SwiperSlide>
+            <SwiperSlide>
+              <BannerImageFloatingWithDropdown isDropdownOpen={isDropdownOpen} setIsDropdownOpen={setIsDropdownOpen} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <BannerImageFull setIsModalActive={setIsModalActive} />
+            </SwiperSlide>
+          </Swiper>
+          {/* 
           {!isTabletOrMobile && activeSlideIndex <= 1 && (
             <div className="z-[5] w-full md:absolute md:bottom-4">
               <IconTextListing />
             </div>
-          )}
+          )} */}
         </div>
       )}
 
       {isTabletOrMobile && (
         <div className="banners-mobile">
           <BannerImageFloatingWithButton />
-          <BannerImageFloatingWithDropdown />
+          <BannerImageFloatingWithDropdown isDropdownOpen={isDropdownOpen} setIsDropdownOpen={setIsDropdownOpen} />
           <BannerImageFull setIsModalActive={setIsModalActive} />
           {/* <CardGrid /> */}
         </div>

@@ -24,11 +24,9 @@ const BannerImageFloatingWithButton = () => {
               <img src={woman} className="relative z-[2] mx-auto h-auto w-[50%] object-cover md:w-auto md:object-contain" />
             </div>
 
-            {isTabletOrMobile && (
-              <div className="relative z-[5] w-full md:absolute md:bottom-4">
-                <IconTextListing />
-              </div>
-            )}
+            <div className="relative z-[5] w-full md:absolute md:bottom-4">
+              <IconTextListing />
+            </div>
 
             <div className={cx({ "p-horizontal": isTabletOrMobile }, "relative z-[2] mt-12 mb-20 flex-1 md:mr-24 md:mt-0 md:mb-0")}>
               <div className="max-w-xl text-gray-900">

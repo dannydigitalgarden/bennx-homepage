@@ -17,9 +17,9 @@ const BannerImageFull: React.FC<Props> = ({ setIsModalActive }) => {
         />
       </div>
       <div className="absolute top-0 right-0 bottom-0 left-0 z-[1] h-full w-full overflow-hidden bg-black bg-fixed opacity-40"></div>
-      {isTabletOrMobile && (
-        <div className="absolute top-0 right-0 z-[2] aspect-square w-full translate-x-[50%] translate-y-[-80%] scale-150 rounded-full bg-[rgba(250,250,250,0.2)]"></div>
-      )}
+
+      <div className="absolute top-0 right-0 z-[2] aspect-square  w-[120%] translate-x-[40%] translate-y-[-80%] rounded-full bg-[rgba(250,250,250,0.2)]"></div>
+
       <div className="p-horizontal h-full w-full">
         <div className="mx-auto h-full max-w-[1440px]">
           <div className="flex h-full flex-col items-center justify-center md:flex-row md:items-center md:justify-start">
@@ -33,14 +33,14 @@ const BannerImageFull: React.FC<Props> = ({ setIsModalActive }) => {
                 </div>
                 <a
                   href="http://example.com/"
-                  className="my-2 block w-full flex-shrink-0 cursor-pointer rounded-full border border-solid border-white bg-white py-[19px] px-[40px]  text-center font-roboto text-lg font-medium leading-none text-gray-900 transition duration-300 ease-in-out hover:bg-transparent hover:text-white md:my-0 md:w-fit"
+                  className="pointer-events-auto my-2 block w-full flex-shrink-0 cursor-pointer rounded-full border border-solid border-white bg-white py-[19px] px-[40px]  text-center font-roboto text-lg font-medium leading-none text-gray-900 transition duration-300 ease-in-out hover:bg-transparent hover:text-white md:my-0 md:w-fit"
                 >
                   View more
                 </a>
               </div>
             </div>
             <div className="relative z-[100] md:w-1/2 md:p-24">
-              <button onClick={() => setIsModalActive(true)} className="mx-12 mt-12 mb-12 flex items-center justify-center">
+              <button onClick={() => setIsModalActive(true)} className="pointer-events-auto mx-12 mt-12 mb-12 flex items-center justify-center">
                 <span className="relative flex h-12 w-12">
                   <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-white opacity-75"></span>
                   <span className="relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-white">
