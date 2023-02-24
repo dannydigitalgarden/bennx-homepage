@@ -13,8 +13,14 @@
   background: #595959 !important;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .swiper-pagination {
-    left: 40px;
+    left: 20px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .swiper-pagination {
+    left: calc((100vw - 1440px) / 2 - 44px);
   }
 }

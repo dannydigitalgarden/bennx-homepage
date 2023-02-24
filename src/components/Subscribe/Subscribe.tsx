@@ -23,7 +23,7 @@ const Subscribe: React.FC<SubscribeProps> = ({ title, intro, button, color }) =>
 
   const headingRef = useRef() as MutableRefObject<HTMLDivElement>;
   const introRef = useRef() as MutableRefObject<HTMLImageElement>;
-  const buttonRef = useRef() as MutableRefObject<HTMLAnchorElement>;
+  const buttonRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
     if (headingRef.current && buttonRef.current) {
@@ -46,13 +46,14 @@ const Subscribe: React.FC<SubscribeProps> = ({ title, intro, button, color }) =>
           <div className={cx("mb-4 text-center font-roboto text-lg font-light  md:mb-0 md:px-12", textColor)} ref={introRef}>
             {intro}
           </div>
-          <a
-            ref={buttonRef}
-            href={button.url}
-            className="my-2 block w-full flex-shrink-0 cursor-pointer rounded-full border border-solid border-white bg-white py-[19px] px-[40px]  text-center font-roboto text-lg font-medium leading-none text-gray-900 transition duration-300 ease-in-out hover:bg-transparent hover:text-white md:my-0 md:w-fit"
-          >
-            {button.text}
-          </a>
+          <div ref={buttonRef}>
+            <a
+              href={button.url}
+              className="my-2 block w-full flex-shrink-0 cursor-pointer rounded-full border border-solid border-white bg-white py-[19px] px-[40px]  text-center font-roboto text-lg font-medium leading-none text-gray-900 transition duration-300 ease-in-out hover:bg-transparent hover:text-white md:my-0 md:w-fit"
+            >
+              {button.text}
+            </a>
+          </div>
         </div>
       </Container>
     </div>

@@ -139,9 +139,15 @@ function App() {
     if (circleTwoRef.current) {
       gsap.to(circleTwoRef.current, {
         opacity: activeSlideIndex == 0 ? 0.75 : 0.15,
-        duration: 0.9,
         yPercent: -activeSlideIndex * 45,
-        zIndex: activeSlideIndex == 2 ? 2 : 0,
+        zIndex: activeSlideIndex == 2 ? 2 : 1,
+        duration: 0.9,
+      });
+
+      gsap.to(circleTwoRef.current, {
+        zIndex: activeSlideIndex == 2 ? 2 : 1,
+        duration: 0,
+        delay: activeSlideIndex == 2 ? 0 : 2,
       });
     }
 
@@ -176,7 +182,7 @@ function App() {
   return (
     <div className="App">
       {!isTabletOrMobile && (
-        <div className="banners-desktop relative overflow-hidden">
+        <div className="banners-desktop relative overflow-hidden bg-white">
           <div className="circles pointer-events-none">
             <div ref={circleOneRef} className="circle-1"></div>
             <div ref={circleTwoRef} className="circle-2"></div>
