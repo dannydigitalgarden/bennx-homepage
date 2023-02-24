@@ -29,7 +29,7 @@ const BannerContent: React.FC<BannerContentProps> = ({ color }) => {
           View more
         </a>
       ) : (
-        <Button url="#" text="View more" color="light" background="#a2041c" />
+        <Button url="#" text="View more" />
       )}
     </div>
   );
