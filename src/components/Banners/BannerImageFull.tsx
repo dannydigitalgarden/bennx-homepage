@@ -6,7 +6,7 @@ interface Props {
 }
 
 const BannerImageFull: React.FC<Props> = ({ setIsModalActive }) => {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-cover bg-no-repeat">

@@ -36,7 +36,7 @@ interface Props {
   setIsDropdownOpen: (value: boolean) => void;
 }
 const BannerImageFloatingWithDropdown: React.FC<Props> = ({ isDropdownOpen, setIsDropdownOpen }) => {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 767px)" });
   return (
     <div className="pointer-events-auto relative w-full  md:h-screen">
       <div className={cx({ "p-horizontal": !isTabletOrMobile }, "h-full w-full")}>
@@ -52,12 +52,12 @@ const BannerImageFloatingWithDropdown: React.FC<Props> = ({ isDropdownOpen, setI
             </div>
 
             {!isTabletOrMobile && (
-              <div className="relative z-[2] w-full md:absolute md:bottom-4">
+              <div className="relative z-[2] w-full md:absolute md:bottom-6">
                 <IconTextListing />
               </div>
             )}
 
-            <div className={cx({ "p-horizontal": isTabletOrMobile }, "relative z-[2] mt-20 mb-20 flex-1 md:mr-24 md:mt-0 md:mb-0")}>
+            <div className={cx({ "p-horizontal": isTabletOrMobile }, "relative z-[2] mt-20 mb-20 flex-1 md:mr-4 md:mt-0 md:mb-0 lg:mr-24")}>
               <div className="max-w-xl text-gray-900">
                 <div className="heading-xl">Welcome to Bennelong</div>
                 <div className="my-6 font-roboto text-lg font-light">

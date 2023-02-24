@@ -8,7 +8,7 @@ import { useMediaQuery } from "react-responsive";
 import Button from "components/Button";
 
 const BannerImageFloatingWithButton = () => {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 767px)" });
   return (
     <div className="relative w-full overflow-hidden md:h-screen">
       <div className={cx({ "p-horizontal": !isTabletOrMobile }, "h-full w-full")}>
@@ -23,18 +23,18 @@ const BannerImageFloatingWithButton = () => {
               <img src={woman} className="relative z-[2] mx-auto h-auto w-[50%] object-cover md:w-auto md:object-contain" />
             </div>
 
-            <div className="relative z-[5] w-full md:absolute md:bottom-4">
+            <div className="relative z-[5] w-full md:absolute md:bottom-6">
               <IconTextListing />
             </div>
 
-            <div className={cx({ "p-horizontal": isTabletOrMobile }, "relative z-[2] mt-12 mb-20 flex-1 md:mr-24 md:mt-0 md:mb-0")}>
+            <div className={cx({ "p-horizontal": isTabletOrMobile }, "relative z-[2] mt-12 mb-20 flex-1 md:mr-4 md:mt-0 md:mb-0 lg:mr-24")}>
               <div className="max-w-xl text-gray-900">
                 <div className="heading-xl">Partners of high performance</div>
                 <div className="my-6 font-roboto text-lg font-light">
                   Partnering with high performance boutiques to deliver exceptional outcomes for our investors across the globe.
                 </div>
 
-                <Button url="#" text="View more" color="light" background="#a2041c" />
+                <Button url="#" text="View more" />
               </div>
             </div>
           </div>

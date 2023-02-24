@@ -14,7 +14,7 @@ const Card = () => {
           <div className="heading-md text-gray-900">Card title</div>
         </div>
         <div className="mb-2 text-lg text-gray-900">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-        <Button background="#fdc902" color="dark" text="View more" url="#" />
+        <Button text="View more" url="#" />
       </div>
     </div>
   );

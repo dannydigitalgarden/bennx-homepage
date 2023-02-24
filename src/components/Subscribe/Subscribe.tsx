@@ -18,7 +18,7 @@ interface SubscribeProps {
 }
 
 const Subscribe: React.FC<SubscribeProps> = ({ title, intro, button, color }) => {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 767px)" });
   const textColor = cx({ "text-white": color === "light", "text-dark": color === "dark" });
 
   const headingRef = useRef() as MutableRefObject<HTMLDivElement>;

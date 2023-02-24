@@ -78,7 +78,7 @@ function App() {
   const [isModalActive, setIsModalActive] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
@@ -138,7 +138,7 @@ function App() {
 
     if (circleTwoRef.current) {
       gsap.to(circleTwoRef.current, {
-        opacity: activeSlideIndex == 0 ? 0.75 : 0.2,
+        opacity: activeSlideIndex == 0 ? 0.75 : 0.15,
         duration: 0.9,
         yPercent: -activeSlideIndex * 45,
         zIndex: activeSlideIndex == 2 ? 2 : 0,
@@ -202,7 +202,6 @@ function App() {
             }}
             onBeforeTransitionStart={(swiper) => {
               setActiveSlideIndex(swiper.activeIndex);
-              console.log(swiper);
             }}
           >
             <SwiperSlide>
@@ -214,13 +213,10 @@ function App() {
             <SwiperSlide>
               <BannerImageFull setIsModalActive={setIsModalActive} />
             </SwiperSlide>
+            <SwiperSlide>
+              <CardGrid />
+            </SwiperSlide>
           </Swiper>
-          {/* 
-          {!isTabletOrMobile && activeSlideIndex <= 1 && (
-            <div className="z-[5] w-full md:absolute md:bottom-4">
-              <IconTextListing />
-            </div>
-          )} */}
         </div>
       )}
 
@@ -229,7 +225,7 @@ function App() {
           <BannerImageFloatingWithButton />
           <BannerImageFloatingWithDropdown isDropdownOpen={isDropdownOpen} setIsDropdownOpen={setIsDropdownOpen} />
           <BannerImageFull setIsModalActive={setIsModalActive} />
-          {/* <CardGrid /> */}
+          <CardGrid />
         </div>
       )}
       <div className="insights-subscribe relative overflow-hidden">
