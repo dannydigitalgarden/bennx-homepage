@@ -18,7 +18,9 @@ const BannerImageFull: React.FC<Props> = ({ setIsModalActive }) => {
       </div>
       <div className="absolute top-0 right-0 bottom-0 left-0 z-[1] h-full w-full overflow-hidden bg-black bg-fixed opacity-40"></div>
 
-      <div className="absolute top-0 right-0 z-[2] aspect-square  w-[120%] translate-x-[40%] translate-y-[-80%] rounded-full bg-[rgba(250,250,250,0.2)]"></div>
+      {isTabletOrMobile && (
+        <div className="absolute top-0 right-0 z-[2] aspect-square  w-[120%] translate-x-[40%] translate-y-[-80%] rounded-full bg-[rgba(250,250,250,0.2)]"></div>
+      )}
 
       <div className="p-horizontal h-full w-full">
         <div className="mx-auto h-full max-w-[1440px]">

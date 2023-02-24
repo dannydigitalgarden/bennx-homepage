@@ -112,13 +112,13 @@ function App() {
     if (insightsCircleRef.current) {
       gsap.fromTo(
         insightsCircleRef.current,
-        { scale: 0.5, opacity: 0 },
+        { scale: 0.8, opacity: 0 },
         {
           scrollTrigger: {
             trigger: ".insights-subscribe",
             start: "top 70%",
             end: "+=50%",
-            scrub: 1.2,
+            scrub: 1,
             toggleActions: "play none none none",
           },
           scale: 1,
@@ -129,47 +129,27 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (activeSlideIndex != 0) {
-      if (circleOneRef.current) {
-        gsap.to(circleOneRef.current, {
-          yPercent: -activeSlideIndex * 75,
-          duration: 1.2,
-          ease: "none",
-        });
-      }
-
-      if (circleTwoRef.current) {
-        gsap.to(circleTwoRef.current, {
-          opacity: 0.2,
-          duration: 1.5,
-          yPercent: -activeSlideIndex * 25,
-          ease: "none",
-        });
-      }
-
-      if (circleThreeRef.current) {
-        gsap.to(circleThreeRef.current, {
-          opacity: 0.5,
-          yPercent: -activeSlideIndex * 75,
-          duration: 2,
-        });
-      }
-    } else {
+    if (circleOneRef.current) {
       gsap.to(circleOneRef.current, {
-        yPercent: 0,
-        duration: 1.2,
+        yPercent: -activeSlideIndex * 75,
+        duration: 0.7,
       });
+    }
 
+    if (circleTwoRef.current) {
       gsap.to(circleTwoRef.current, {
-        opacity: 0.75,
-        yPercent: 0,
-        duration: 1.5,
+        opacity: activeSlideIndex == 0 ? 0.75 : 0.2,
+        duration: 0.9,
+        yPercent: -activeSlideIndex * 45,
+        zIndex: activeSlideIndex == 2 ? 2 : 0,
       });
+    }
 
+    if (circleThreeRef.current) {
       gsap.to(circleThreeRef.current, {
-        opacity: 0.8,
-        yPercent: 0,
-        duration: 2,
+        opacity: 0.5,
+        yPercent: -activeSlideIndex * 75,
+        duration: 1.5,
       });
     }
   }, [activeSlideIndex]);
@@ -220,9 +200,9 @@ function App() {
             onSwiper={(swiper) => {
               setMySwiper(swiper);
             }}
-            onSlideChange={(swiper) => {
+            onBeforeTransitionStart={(swiper) => {
               setActiveSlideIndex(swiper.activeIndex);
-              console.log(swiper.activeIndex);
+              console.log(swiper);
             }}
           >
             <SwiperSlide>

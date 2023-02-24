@@ -1,5 +1,4 @@
 import React from "react";
-import BannerContent from "./BannerContent";
 import cx from "classnames";
 import woman from "assets/images/woman.png";
 import IconTextListing from "components/IconTextListing";

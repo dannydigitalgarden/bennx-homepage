@@ -62,17 +62,17 @@ html {
 }
 
 .circle-1 {
-  @apply absolute right-[-700px] top-[-800px] z-[0] hidden aspect-square w-[1550px] min-w-[100%] rounded-full  opacity-70 md:block;
+  @apply absolute right-[-42%] top-[-800px] z-[0] hidden aspect-square w-[1550px] min-w-[100%] rounded-full  opacity-70 md:block;
   background: linear-gradient(159deg, rgba(221, 233, 238, 1) 0%, rgba(219, 232, 235, 1) 28%, rgba(229, 234, 236, 1) 53%, rgba(218, 227, 231, 1) 100%);
 }
 
 .circle-2 {
-  @apply absolute right-[-850px] top-[15%] z-[1] hidden aspect-square w-[1800px] min-w-[115%] rounded-full  opacity-75 md:block;
+  @apply absolute right-[-50%] top-[12%] z-[0] hidden aspect-square w-[1800px] min-w-[115%] rounded-full  opacity-75 md:block;
   background: linear-gradient(225deg, rgba(219, 227, 230, 1) 0%, rgba(228, 234, 237, 1) 40%, rgba(220, 226, 235, 1) 82%, rgba(226, 231, 233, 1) 100%);
 }
 
 .circle-3 {
-  @apply absolute right-[-800px] top-[12%] z-[1] hidden aspect-square w-[1050px] min-w-[60%] rounded-full opacity-80 md:block;
+  @apply absolute right-[-40%] top-[17%] z-[1] hidden aspect-square w-[1050px] min-w-[60%] rounded-full opacity-80 md:block;
 
   background: linear-gradient(199deg, rgba(207, 214, 217, 1) 0%, rgba(217, 224, 227, 1) 40%, rgba(228, 233, 236, 1) 82%);
 }
