@@ -73,7 +73,7 @@ html {
 }
 
 .circle-3 {
-  @apply absolute right-[-40%] top-[12%] z-[2] hidden aspect-square w-[1050px] min-w-[60%] max-w-[65%] rounded-full opacity-80 md:block;
+  @apply absolute right-[-40%] top-[12%] z-[1] hidden aspect-square w-[1050px] min-w-[60%] max-w-[65%] rounded-full opacity-80 md:block;
 
   background: linear-gradient(199deg, rgba(207, 214, 217, 1) 0%, rgba(217, 224, 227, 1) 40%, rgba(228, 233, 236, 1) 82%);
 }

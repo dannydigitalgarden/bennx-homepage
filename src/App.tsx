@@ -7,13 +7,10 @@ import LatestInsights from "components/LatestInsights/LatestInsights";
 
 import { useMediaQuery } from "react-responsive";
 
-import "./App.css";
-
 import Subscribe from "components/Subscribe";
 
 import { useWindowScroll } from "react-use";
 import ModalVideo from "components/ModalVideo";
-import IconTextListing from "components/IconTextListing";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -27,51 +24,9 @@ import "swiper/css/pagination";
 // import required modules
 import { Mousewheel, Pagination } from "swiper";
 
-const latestInsights = {
-  title: "Latest Insights",
-  items: [
-    {
-      url: "#",
-      title: "Investment Perspectives: Don’t fear the taper",
-      image: "https://images.pexels.com/photos/14392059/pexels-photo-14392059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      intro:
-        "As vaccination rates increase around the world and we (hopefully) return to some normality in our daily lives, world economies appear to be stabilising.",
-      tags: ["Quay Global Investors", "Article", "1 min read"],
-    },
-    {
-      url: "#",
-      title: "Investment Perspectives: Don’t fear the taper",
-      image: "https://images.pexels.com/photos/14392059/pexels-photo-14392059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      intro:
-        "As vaccination rates increase around the world and we (hopefully) return to some normality in our daily lives, world economies appear to be stabilising.",
-      tags: ["Quay Global Investors", "Article", "1 min read"],
-    },
-    {
-      url: "#",
-      title: "Investment Perspectives: Don’t fear the taper",
-      image: "https://images.pexels.com/photos/14392059/pexels-photo-14392059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      intro:
-        "As vaccination rates increase around the world and we (hopefully) return to some normality in our daily lives, world economies appear to be stabilising.",
-      tags: ["Quay Global Investors", "Article", "1 min read"],
-    },
-  ],
-  button: {
-    text: "View more",
-    background: "#a2041c",
-    color: "light",
-    url: "/insights",
-  },
-};
+import "./App.css";
 
-const subscribe = {
-  title: "Stay up to date",
-  intro: "Get the latest performance reports, articles, podcasts & company news.",
-  color: "light",
-  button: {
-    text: "Subscribe",
-    url: "#",
-  },
-};
+import data from "utils/mock-data";
 
 function App() {
   gsap.registerPlugin(ScrollTrigger);
@@ -219,9 +174,6 @@ function App() {
             <SwiperSlide>
               <BannerImageFull setIsModalActive={setIsModalActive} />
             </SwiperSlide>
-            <SwiperSlide>
-              <CardGrid />
-            </SwiperSlide>
           </Swiper>
         </div>
       )}
@@ -231,7 +183,6 @@ function App() {
           <BannerImageFloatingWithButton />
           <BannerImageFloatingWithDropdown isDropdownOpen={isDropdownOpen} setIsDropdownOpen={setIsDropdownOpen} />
           <BannerImageFull setIsModalActive={setIsModalActive} />
-          <CardGrid />
         </div>
       )}
       <div className="insights-subscribe relative overflow-hidden">
@@ -240,9 +191,9 @@ function App() {
           className="absolute right-[-900px] top-[-400px] z-0 hidden aspect-square w-[1550px] rounded-full bg-[#ccc] opacity-20 xl:block 2xl:top-[-400px] 2xl:right-[-650px]"
         ></div>
         <div className="relative z-10">
-          <LatestInsights {...latestInsights} />
+          <LatestInsights {...data.latestInsights} />
         </div>
-        <Subscribe {...subscribe} />
+        <Subscribe {...data.subscribe} />
       </div>
 
       {isModalActive && <ModalVideo setIsModalActive={setIsModalActive} />}
